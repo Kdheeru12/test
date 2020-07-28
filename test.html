@@ -1,0 +1,62 @@
+
+  <html>
+    <head>
+      <title>Right click disable in web page</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <style>
+          .copy{
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -o-user-select:none;
+            -user-select:none;
+
+          }
+      </style>
+      <style type="text/css" media="print">
+        body {visibility: hidden; display: none;}
+    </style>
+    </head>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery(function() {
+                  jQuery(this).bind("contextmenu", function(event) {
+                      event.preventDefault();
+                      alert('Right click disable in this site!!')
+                  });
+              });
+          });
+    </script>
+
+    <body>
+        <div class="copy">
+      
+        <br>
+        <br>
+        <br>
+      
+          IP ADDRESS
+        <div id="data" >
+        </div>
+      You write your own code
+        <br>
+        <br>
+        if u try to print content wil not display
+        <br>
+        <br>
+        u cannot copy the text in webpage
+
+</div>
+        <script>
+        function callback(response){
+            console.log(response)
+            document.getElementById("data").innerHTML = response.IPv4;
+        }
+        $.ajax(
+            {
+                url:"https://geoip-db.com/jsonp/",
+                dataType:"jsonp"
+            }
+        )
+    </script>
+    </body>
+  </html>
